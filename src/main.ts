@@ -3,8 +3,14 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import Antd from 'ant-design-vue'
+import 'ant-design-vue/dist/antd.css'
+// import './assets/scss'
+import './mock/index'
+
+import axios from 'axios'
 
 Vue.config.productionTip = false
+Vue.prototype.$axios = axios;
 
 Vue.use(Antd)
 

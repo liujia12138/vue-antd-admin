@@ -7,10 +7,12 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@acheetahk/request": "^1.17.0",
     "ant-design-vue": "^1.7.1",
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
     "mock": "^0.1.1",
+    "mockjs": "^1.1.0",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^8.4.2",
@@ -18,6 +20,7 @@
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@types/mockjs": "^1.0.3",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-typescript": "~4.5.0",

@@ -1,0 +1,7 @@
+@import './variables.scss';
+
+#main-layout-container{
+    >section>.ant-layout-header{
+        height: 60px;
+    }
+}
