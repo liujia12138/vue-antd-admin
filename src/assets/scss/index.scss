@@ -1,0 +1,21 @@
+@import './variables.scss';
+
+#main-layout-container{
+    >section>.ant-layout-header{
+        height: 50px;
+        line-height: 50px;
+    }
+}
+
+#main-layout-container {
+    .ant-menu.ant-menu-dark{
+        background-color: $sider-bg;
+        .ant-menu-inline.ant-menu-sub{
+            box-shadow: none;
+            background-color: $sider-bg;
+        }
+        .ant-menu-item, .ant-menu-submenu-title{
+            text-align: left;
+        }
+    }
+}

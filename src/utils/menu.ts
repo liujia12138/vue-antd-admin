@@ -22,6 +22,9 @@ const menu = [
     },{
         name: '可视化',
         icon: 'fund'
+    },{
+        name: '富文本编辑器',
+        icon: 'edit'
     }
 ]
 

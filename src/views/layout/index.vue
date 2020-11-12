@@ -1,36 +1,13 @@
 <template>
   <a-layout id="main-layout-container">
-    <a-layout-sider :trigger="null" collapsible>
+    <a-layout-sider :trigger="null" collapsible style="background: #1c202b">
       <div class="logo">vue-antd-admin</div>
-      <a-menu
-        theme="dark"
-        mode="inline"
-        :default-selected-keys="[$route.path]"
-        :default-open-keys="[$route.path.split('/')[1]]"
-      >
-        <template v-for="item in menuList">
-          <a-sub-menu v-if="item.children" :key="item.name">
-            <span slot="title"
-              ><a-icon :type="item.icon" /><span>{{ item.name }}</span></span
-            >
-            <a-menu-item
-              v-for="child in item.children"
-              :key="child.path"
-              @click="$router.push(child.path)"
-            >
-              <span>{{ child.name }}</span>
-            </a-menu-item>
-          </a-sub-menu>
-
-          <a-menu-item v-else :key="item.path" @click="$router.push(item.path)">
-            <a-icon v-if="item.icon" :type="item.icon" />
-            <span>{{ item.name }}</span>
-          </a-menu-item>
-        </template>
-      </a-menu>
+      <side-bar />
     </a-layout-sider>
     <a-layout>
-      <a-layout-header style="background: #001529; color: #fff"> header </a-layout-header>
+      <a-layout-header style="background: #fff; color: #1c202b">
+        header
+      </a-layout-header>
       <a-layout-content id="main-content">
         <router-view />
       </a-layout-content>
@@ -39,14 +16,16 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-import menu from "../../utils/menu";
-@Component
-export default class Index extends Vue {
-  menuList = menu;
+import Vue from 'vue'
+import { Prop, Component } from 'vue-property-decorator'
+import SideBar from './sider.vue'
+
+@Component({
+  components: { SideBar },
+})
+export default class Layout extends Vue {
   created() {
-    this.getList();
+    this.getList()
   }
   getList() {
     // this.$axios.get("/api/user/list").then((res) => {
