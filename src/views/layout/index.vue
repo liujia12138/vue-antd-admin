@@ -5,8 +5,8 @@
       <side-bar />
     </a-layout-sider>
     <a-layout>
-      <a-layout-header style="background: #fff; color: #1c202b">
-        header
+      <a-layout-header>
+       <nav-bar />
       </a-layout-header>
       <a-layout-content id="main-content">
         <router-view />
@@ -19,9 +19,10 @@
 import Vue from 'vue'
 import { Prop, Component } from 'vue-property-decorator'
 import SideBar from './sider.vue'
+import NavBar from './navBar.vue'
 
 @Component({
-  components: { SideBar },
+  components: { SideBar, NavBar },
 })
 export default class Layout extends Vue {
   created() {

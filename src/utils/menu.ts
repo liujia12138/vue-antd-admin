@@ -5,8 +5,17 @@ const menu = [
         icon: 'table',
         children: [
             {
-                name: '基础表格',
-                path: '/table/normal'
+                name: 'normal',
+                path: '/normal',
+                meta: {
+                    title: '基础表格'
+                }
+            },{
+                name: 'tree',
+                path: '/tree',
+                meta: {
+                    title: '树形表格'
+                }
             }
         ]
     },{
@@ -15,16 +24,30 @@ const menu = [
         icon: 'form',
         children: [
             {
-                name: 'normal',
-                path: '/form/normal'
+                name: 'baseForm',
+                path: '/base',
+                meta: {
+                    title: '基础表单'
+                }
             }
         ]
     },{
         name: '可视化',
-        icon: 'fund'
-    },{
-        name: '富文本编辑器',
-        icon: 'edit'
+        icon: 'fund',
+        path: '/charts',
+        children: [
+            {
+                name: 'echarts',
+                path: '/echarts',
+                meta: {
+                    title: 'echarts'
+                }
+            }
+        ]
+    // },{
+    //     name: '富文本编辑器',
+    //     icon: 'edit',
+    //     path: ''
     }
 ]
 
