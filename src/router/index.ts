@@ -15,7 +15,7 @@ const addMenuRoutes = (menuList: [] = [], basePath: String = '') => {
       path: basePath + path,
       name: menu.name,
       meta: menu.meta,
-      component: () => import(`../views${basePath + path}`)
+      component: () => import(`../views${basePath + path}.vue`)
     }
   })
   return routes.flat()

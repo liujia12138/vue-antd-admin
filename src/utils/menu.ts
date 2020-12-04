@@ -44,10 +44,10 @@ const menu = [
                 }
             }
         ]
-    // },{
-    //     name: '富文本编辑器',
-    //     icon: 'edit',
-    //     path: ''
+    },{
+        name: '富文本编辑器',
+        icon: 'edit',
+        path: '/editor/index'
     }
 ]
 

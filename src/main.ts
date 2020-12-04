@@ -6,6 +6,11 @@ import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
 import './assets/scss/index.scss'
 import './mock/index'
+// quill
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+
 
 import axios from 'axios'
 

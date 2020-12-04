@@ -1,6 +1,7 @@
 @import './variables.scss';
 
 #main-layout-container {
+  height: 100%;
   > section > .ant-layout-header {
     height: 50px;
     line-height: 50px;
