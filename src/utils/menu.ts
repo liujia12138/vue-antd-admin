@@ -42,6 +42,12 @@ const menu = [
                 meta: {
                     title: 'echarts'
                 }
+            },{
+                name: 'g2',
+                path: '/g2',
+                meta: {
+                    title: 'g2'
+                }
             }
         ]
     },{

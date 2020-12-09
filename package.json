@@ -8,10 +8,11 @@
   },
   "dependencies": {
     "@acheetahk/request": "^1.17.0",
+    "@antv/g2": "^4.1.1",
     "ant-design-vue": "^1.7.1",
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
-    "echarts": "^5.0.0",
+    "echarts": "^4.9.0",
     "mock": "^0.1.1",
     "mockjs": "^1.1.0",
     "vue": "^2.6.11",
