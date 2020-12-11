@@ -41,13 +41,7 @@ export default class Ponit extends Vue {
       .position('type*value')
       .shape('circle')
       .size('count', (count) => count * 0.5)
-      .color('count', (count) =>
-        count > 20
-          ? 'rgba(140,222,196,0.8)'
-          : count > 10
-          ? 'rgba(89,132,207,0.8)'
-          : 'rgba(249,125,86,0.8)'
-      )
+      .color('count')
     myChart.render()
   }
 }

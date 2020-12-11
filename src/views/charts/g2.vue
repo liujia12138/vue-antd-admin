@@ -15,7 +15,9 @@
         </div>
       </a-col>
       <a-col :span="8">
-        <!-- <div style="width: 100%; height: 400px"></div> -->
+        <div>
+          <line-chart width="100%" height="100%"/>
+        </div>
       </a-col>
     </a-row>
     <a-row :gutter="20">
@@ -30,10 +32,11 @@
 import { Vue, Component } from 'vue-property-decorator'
 import { Chart } from '@antv/g2'
 import Ponit from '../../components/g2_point'
+import LineChart from '../../components/g2_line'
 
 @Component({
   components: {
-    Ponit,
+    Ponit,LineChart
   },
 })
 export default class Charts extends Vue {
@@ -87,6 +90,7 @@ export default class Charts extends Vue {
     lineChart
       .interval()
       .position('year*sales')
+      .shape('rect')
       .color('year*sales', (year, sales) => {
         if (year === '2018年' || sales > 35) return this.colors[0]
         return this.colors[2]
@@ -98,7 +102,6 @@ export default class Charts extends Vue {
         if (year === '2018年' || sales > 35) return this.colors[1]
         return this.colors[2]
       })
-      .size('sales', (sales) => sales * 0.1)
     lineChart.render()
   }
 }
