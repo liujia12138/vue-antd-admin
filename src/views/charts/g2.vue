@@ -3,28 +3,41 @@
     <div class="main-title">
       <h5>G2</h5>
     </div>
-    <a-row class="chart-row" :gutter="20">
+     <a-row class="chart-row" :gutter="20">
       <a-col :span="8">
         <div>
-          <div id="line" style="width: 100%; height: 100%"></div>
+          <ComplexCharts name="charts" width="100%" height="88%" />
         </div>
       </a-col>
-      <a-col :span="8">
+       <a-col :span="8">
         <div>
-          <Ponit width="100%" height="100%" />
+          <ComplexCharts name="charts-2" width="100%" height="88%" />
         </div>
       </a-col>
-      <a-col :span="8">
+       <a-col :span="8">
         <div>
-          <line-chart width="100%" height="100%"/>
+          <ComplexCharts name="charts-3" width="100%" height="88%" />
         </div>
       </a-col>
     </a-row>
-    <a-row :gutter="20">
-      <a-col :span="24">
-        <div style="width: 100%; height: 400px"></div>
+    <a-row class="chart-row t-mt15" :gutter="20">
+      <a-col :span="8">
+        <div>
+          <div id="line"></div>
+        </div>
+      </a-col>
+      <a-col :span="8">
+        <div>
+          <ponit width="100%" height="88%" />
+        </div>
+      </a-col>
+      <a-col :span="8">
+        <div>
+          <line-chart width="100%" height="88%" />
+        </div>
       </a-col>
     </a-row>
+   
   </div>
 </template>
 
@@ -33,10 +46,13 @@ import { Vue, Component } from 'vue-property-decorator'
 import { Chart } from '@antv/g2'
 import Ponit from '../../components/g2_point'
 import LineChart from '../../components/g2_line'
+import ComplexCharts from '../../components/charts'
 
 @Component({
   components: {
-    Ponit,LineChart
+    Ponit,
+    LineChart,
+    ComplexCharts,
   },
 })
 export default class Charts extends Vue {
@@ -95,6 +111,9 @@ export default class Charts extends Vue {
         if (year === '2018年' || sales > 35) return this.colors[0]
         return this.colors[2]
       })
+      .label('sales', {
+        type: 'interval',
+      })
     lineChart
       .point()
       .position('year*sales')
@@ -102,12 +121,20 @@ export default class Charts extends Vue {
         if (year === '2018年' || sales > 35) return this.colors[1]
         return this.colors[2]
       })
+
+    lineChart.tooltip({
+      showCrosshairs: false, //展示tooltip辅助线
+    })
+    lineChart.interaction('active-region')
     lineChart.render()
   }
 }
 </script>
 
 <style lang="scss" >
+h5 {
+  text-align: center;
+}
 .g2 {
   background: #151632;
   padding: 20px;
@@ -116,9 +143,11 @@ export default class Charts extends Vue {
     background-size: 100% 100%;
     padding: 50%;
     position: relative;
-    &>div{
+    & > div {
       position: absolute;
-      top: 0;
+      width: 100%;
+      height: 88%;
+      top: 12%;
       left: 0;
     }
   }

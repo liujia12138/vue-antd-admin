@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { Vue, Prop, Component } from 'vue-property-decorator'
-import { Chart } from '@antv/g2'
+import { Chart, registerInteraction } from '@antv/g2'
 
 @Component({})
 export default class Ponit extends Vue {
@@ -22,26 +22,49 @@ export default class Ponit extends Vue {
 
   public data: any = Array.from({ length: 80 }, (_, i) => {
     return {
-      type: `第${i % 10}组`,
-      value: Math.round(Math.random() * 10),
-      count: Math.round(Math.random() * 30 ),
+      type: i % 2 ? `male` : 'female',
+      value: Math.round(Math.random() * 20 + 12),
+      count: Math.round(Math.random() * 20 + 1),
     }
   })
 
   mounted() {
+    registerInteraction('element-link', {
+      start: [
+        {
+          trigger: 'point:mouseenter',
+          action: 'element-link-by-color:link',
+        },
+      ],
+      end: [
+        {
+          trigger: 'point:mouseleave',
+          action: 'element-link-by-color:unlink',
+        },
+      ],
+    })
     const myChart = new Chart({
       container: 'chart',
       autoFit: true,
-      padding: [40, 40]
+      padding: [20, 40, 40, 40],
     })
 
     myChart.data(this.data)
-    myChart
-      .point()
-      .position('type*value')
-      .shape('circle')
-      .size('count', (count) => count * 0.5)
-      .color('count')
+    myChart.scale('value', {
+      max: 40,
+      min: 0,
+    })
+    myChart.point().position('count*value').shape('circle').color('type')
+
+    myChart.tooltip({
+      showCrosshairs: true,
+      crosshairs: {
+        type: 'xy',
+      },
+    })
+
+    myChart.interaction('element-link')
+
     myChart.render()
   }
 }
